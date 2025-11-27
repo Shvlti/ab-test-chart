@@ -1,0 +1,75 @@
+.chartContainer {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &.dark {
+    background: #2d2d2d;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.grid {
+  stroke: #f0f0f0;
+
+  .dark & {
+    stroke: #444;
+  }
+}
+
+.axis {
+  font-size: 12px;
+  color: #666;
+  
+  .dark & {
+    color: #cccccc;
+    
+    line {
+      stroke: #444;
+    }
+  }
+  
+  line {
+    stroke: #e0e0e0;
+  }
+}
+.chartHeader {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.resetZoom {
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 12px;
+  
+  &:hover:not(:disabled) {
+    background: #f0f0f0;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .dark & {
+    background: #3d3d3d;
+    border-color: #555;
+    color: #ffffff;
+    
+    &:hover:not(:disabled) {
+      background: #4d4d4d;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .chartContainer {
+    padding: 10px;
+  }
+}
