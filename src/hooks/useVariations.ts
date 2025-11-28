@@ -1,9 +1,10 @@
+// src/hooks/useVariations.ts
 import { useState } from "react";
 
 export const useVariations = (initialVariations: string[] = ["Original"]) => {
   const [selectedVariations, setSelectedVariations] = useState<string[]>(initialVariations);
 
-  const handleVariationToggle = (variation: string, allVariations: string[]) => {
+  const handleVariationToggle = (variation: string) => {
     setSelectedVariations((prev) => {
       if (prev.includes(variation)) {
         return prev.length > 1 ? prev.filter((v) => v !== variation) : prev;

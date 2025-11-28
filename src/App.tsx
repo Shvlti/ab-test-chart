@@ -57,7 +57,7 @@ function App() {
               allVariations={allVariationNames}
               selectedVariations={selectedVariations}
               onVariationToggle={(variation) =>
-                handleVariationToggle(variation, allVariationNames)
+                handleVariationToggle(variation)
               }
               onSelectAll={() => selectAllVariations(allVariationNames)}
               onSelectOne={() => selectOneVariation(allVariationNames[0])}
@@ -131,9 +131,7 @@ function App() {
             ref={chartRef}
             data={processedData}
             selectedVariations={selectedVariations}
-            onVariationToggle={(variation) =>
-              handleVariationToggle(variation, allVariationNames)
-            }
+            onVariationToggle={(variation) => handleVariationToggle(variation)}
             lineType={lineType}
             theme={theme}
           />
