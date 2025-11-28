@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import {
   LineChart as RechartsLineChart,
   AreaChart,
@@ -8,7 +8,7 @@ import { ProcessedDataPoint, LineType, Theme } from "@/types/chart";
 import { CHART_MARGIN } from "../../constants/chart";
 import { ChartElements } from "./ChartElement";
 import { LineComponents, AreaComponents } from "./LineElement";
-import * as styles from "./LineChart.module.scss";
+import "./LineChart.module.scss"; // ← ОБЫЧНЫЙ импорт без styles
 
 interface LineChartProps {
   data: ProcessedDataPoint[];
@@ -40,7 +40,7 @@ export const LineChart = forwardRef<any, LineChartProps>(
 
       return (
         <ChartWrapper {...commonProps}>
-          <ChartElements onVariationToggle={onVariationToggle} />
+          <ChartElements onVariationToggle={onVariationToggle} theme={theme} />
           {lineType === "area" ? (
             <AreaComponents selectedVariations={selectedVariations} />
           ) : (
@@ -54,7 +54,8 @@ export const LineChart = forwardRef<any, LineChartProps>(
     };
 
     return (
-      <div className={`${styles.chartContainer} ${styles[theme]}`}>
+      // ↓ ИСПОЛЬЗУЙ ОБЫЧНЫЕ КЛАССЫ без styles
+      <div className={`chartContainer ${theme}`}>
         <ResponsiveContainer width="100%" height={400}>
           {renderChart()}
         </ResponsiveContainer>
