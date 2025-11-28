@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import {
   LineChart as RechartsLineChart,
   AreaChart,
@@ -8,7 +8,7 @@ import { ProcessedDataPoint, LineType, Theme } from "@/types/chart";
 import { CHART_MARGIN } from "../../constants/chart";
 import { ChartElements } from "./ChartElement";
 import { LineComponents, AreaComponents } from "./LineElement";
-import "./LineChart.module.scss"; // ← ОБЫЧНЫЙ импорт без styles
+import styles from "./LineChart.module.scss";
 
 interface LineChartProps {
   data: ProcessedDataPoint[];
@@ -18,6 +18,7 @@ interface LineChartProps {
   theme?: Theme;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const LineChart = forwardRef<any, LineChartProps>(
   (
     {
@@ -40,7 +41,7 @@ export const LineChart = forwardRef<any, LineChartProps>(
 
       return (
         <ChartWrapper {...commonProps}>
-          <ChartElements onVariationToggle={onVariationToggle} theme={theme} />
+          <ChartElements onVariationToggle={onVariationToggle} />
           {lineType === "area" ? (
             <AreaComponents selectedVariations={selectedVariations} />
           ) : (
@@ -54,8 +55,7 @@ export const LineChart = forwardRef<any, LineChartProps>(
     };
 
     return (
-      // ↓ ИСПОЛЬЗУЙ ОБЫЧНЫЕ КЛАССЫ без styles
-      <div className={`chartContainer ${theme}`}>
+      <div className={`${styles.chartContainer} ${styles[theme]}`}>
         <ResponsiveContainer width="100%" height={400}>
           {renderChart()}
         </ResponsiveContainer>

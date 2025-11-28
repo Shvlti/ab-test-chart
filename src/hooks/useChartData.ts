@@ -30,6 +30,7 @@ export const useChartData = (timeRange: string, selectedVariations: string[]) =>
         dataToProcess = aggregateDataByWeek(chartData.data);
       }
       const processedChartData = { ...chartData, data: dataToProcess };
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setProcessedData(processChartData(processedChartData, selectedVariations));
     }
   }, [chartData, selectedVariations, timeRange]);
