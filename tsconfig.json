@@ -27,7 +27,13 @@
       "@/components/*": ["src/components/*"],
       "@/types/*": ["src/types/*"],
       "@/utils/*": ["src/utils/*"]
-    }
+    },
+
+    /* Composite project settings */
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
