@@ -35,6 +35,5 @@
     "declarationMap": true,
     "emitDeclarationOnly": false
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
