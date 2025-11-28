@@ -12,7 +12,7 @@ export const useChartData = (timeRange: string, selectedVariations: string[]) =>
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data.json');
+        const response = await fetch('./data.json');
         const data = await response.json();
         setChartData(data);
       } catch (error) {
